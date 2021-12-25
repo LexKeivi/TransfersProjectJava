@@ -1,7 +1,7 @@
 import java.sql.*;
 
 public class DataBase {
-    Connection connection;
+    //Connection connection;
     String url = "jdbc:sqlite:src\\db\\transfers.db";
 
     private Connection connect() {

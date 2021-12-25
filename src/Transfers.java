@@ -4,7 +4,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.*;
 
 public class Transfers {
     private static List<Transfer> transfers;
@@ -28,12 +27,9 @@ public class Transfers {
         String units = strings[5];
 
         dataValue = dataValue.replaceAll(",", ".");
-        if (dataValue.equals("")){
-            dataValue = null;
-        }
-        System.out.println(dataValue);
+
         transfers.add(new Transfer(period,
-                Double.parseDouble(dataValue),
+                dataValue.isEmpty() ? null :Double.parseDouble(dataValue),
                 units));
 
     }
