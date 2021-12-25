@@ -1,7 +1,7 @@
 public class Transfer {
     String period;
     Double dataValue;
-    private final String units;
+    final String units;
 
 
     public Transfer(String period, Double dataValue, String units){

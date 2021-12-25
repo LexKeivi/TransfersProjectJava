@@ -8,7 +8,6 @@ public class DataBase {
         Connection connection = null;
         try{
             connection = DriverManager.getConnection(url);
-            System.out.println("Connection success");
         }
         catch (SQLException e){
             e.printStackTrace();
@@ -38,7 +37,13 @@ public class DataBase {
             assert conn != null;
             try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
                 pstmt.setString(1, period);
-                pstmt.setDouble(2, dataValue);
+                if (dataValue != -1){
+                    pstmt.setString(2, String.valueOf(dataValue));
+                }
+                else {
+                    pstmt.setString(2, null);
+                }
+
                 pstmt.setString(3, units);
                 pstmt.executeUpdate();
             }

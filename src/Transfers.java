@@ -29,8 +29,11 @@ public class Transfers {
         dataValue = dataValue.replaceAll(",", ".");
 
         transfers.add(new Transfer(period,
-                dataValue.isEmpty() ? null :Double.parseDouble(dataValue),
+                dataValue.isEmpty() ? -1 :Double.parseDouble(dataValue),
                 units));
+    }
 
+    public static List<Transfer> getTransfers() {
+        return transfers;
     }
 }
